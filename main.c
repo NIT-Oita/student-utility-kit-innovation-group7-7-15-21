@@ -1,16 +1,23 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include"file_manager.h"
+#include"date.h"
+#include"judge.h"
 
 int main(){
-    int file_a,file_b,file_c,file_number,subject_number,
+    int file_a=0,file_b=0,file_c=0,file_number,subject_number,
     need_shusseki_count,shusseki_nissuu_count,
     check_file_number;
     char file[100],file_name[100],file_in[100],subject[100],
     shusseki_nissuu[100],need_shusseki[100],check_file[100];
+    int check(char *);
+    int count_check(char *, char *);
+    int file_name_check(char *);
+
     while(file_a==0||2<file_a){
     printf("ファイルを作成しますか?(1 作成する,2 作成しない:)");
     scanf_s("%s",file,100);
-    file_a==check(file);
+    file_a=check(file);
     if(file_a==0||2<file_a){
         printf("不当な入力です。やり直してください");
     }
@@ -29,14 +36,14 @@ int main(){
             //ここでファイルにデータを渡す
             printf("そのまま入力しますか?入力しないならそのまま終了します(1 入力する,2 入力しない:)");
             scanf_s("%s",file_in,100);
-            file_c==check(file_in);
+            file_c=check(file_in);
             if(file_c==0){
                 printf("不当な入力です。やり直してください");
             }if(file_c==1){
-                while(subject_number==0||2<subject_number){
+                while(subject_number<1||3<subject_number){
                     printf("教科を入力してください(1 国語,2 数学,3 英語)");
                     scanf_s("%s",subject,100);
-                    subject_number==check(subject);
+                    subject_number=check(subject);
                     if(subject_number==0||2<subject_number){
                         printf("不当な入力です。やりなおしてください");
                     }
@@ -60,6 +67,12 @@ int main(){
                             }
                         }if(0<shusseki_nissuu_count){
                                 //fileにデータを送信
+                                saveData(
+                                file_name,
+                                subject_number,
+                                need_shusseki_count,
+                                shusseki_nissuu_count
+                                );
                             }
                     }else if(subject_number==2){
                         while(need_shusseki_count==0||2<need_shusseki_count){
@@ -115,7 +128,7 @@ int main(){
         while(check_file_number==0||2<check_file_number){
         printf("ファイルを確認しますか。確認しないならそのまま終了(1 確認する,2 確認しない)");
         scanf_s("%s",check_file,100);
-        check_file_number=check(check_file_number);
+        check_file_number=check(check_file);
         if(check_file_number==0||2<check_file_number){
             printf("不当な入力です。やり直してください");
             }
@@ -131,7 +144,7 @@ int main(){
         }if(file_b==1){
             //データを転送帰り値が1ならファイルが存在しないと出力
             while(file_c==0||2<file_c){
-            pirntf("データの入力をしますか。しないなら終了。(1 する,2 しない)");
+            printf("データの入力をしますか。しないなら終了。(1 する,2 しない)");
             scanf_s("%s",file_in,100);
             file_c=check(file_in);
             if(file_c==0||2<file_c){
