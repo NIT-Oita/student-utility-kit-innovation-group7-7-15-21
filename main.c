@@ -99,6 +99,7 @@ int main(){
                             shusseki_nissuu_count=check(shusseki_nissuu);
                             if(shusseki_nissuu_count==0){
                                 printf("不当な入力です。やり直してください");
+                                //checkから値をもらう
                             }
                         }if(0<shusseki_nissuu_count){
                                 //fileにデータを送信
