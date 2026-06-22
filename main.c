@@ -12,7 +12,7 @@ int main(){
     scanf_s("%s",file,100);
     file_a==check(file);
     if(file_a==0||2<file_a){
-        printf("不当な入力です。やり直してください");
+        printf("不当な入力です。やり直してください\n");
     }
     }
     if(file_a==1){
@@ -21,7 +21,7 @@ int main(){
         scanf_s("%s",file_name,100);
         file_b=check(file_name);
         if(file_b==0){
-            printf("不当な入力です。やり直してください");
+            printf("不当な入力です。やり直してください\n");
         }
     }
     while(file_c==0||2<file_c){
@@ -31,7 +31,7 @@ int main(){
             scanf_s("%s",file_in,100);
             file_c==check(file_in);
             if(file_c==0){
-                printf("不当な入力です。やり直してください");
+                printf("不当な入力です。やり直してください\n");
             }if(file_c==1){
                 while(subject_number==0||2<subject_number){
                     printf("教科を入力してください(1 国語,2 数学,3 英語)");
@@ -46,7 +46,7 @@ int main(){
                             scanf_s("%s",need_shusseki,100);
                             need_shusseki_count=check(need_shusseki);
                             if(need_shusseki_count==0){
-                                printf("不当な入力です。やり直してください");
+                                printf("不当な入力です。やり直してください\n");
                             }
                         }if(0<need_shusseki_count){
                                 //fileの関数に渡す
@@ -56,18 +56,21 @@ int main(){
                             scanf_s("%s",shusseki_nissuu,100);
                             shusseki_nissuu_count=check(shusseki_nissuu);
                             if(shusseki_nissuu_count==0){
-                                printf("不当な入力です。やり直してください");
+                                printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<shusseki_nissuu_count){
-                                //fileにデータを送信
-                            }
+                        }int shusseki_difference=count_check(need_shusseki,shusseki_nissuu);
+                        if(shusseki_difference==-1){
+                            printf("出席日数は、足りています\n");
+                        }else if(0<shusseki_difference){
+                            printf("あと%d日出席してください。");
+                        }
                     }else if(subject_number==2){
-                        while(need_shusseki_count==0||2<need_shusseki_count){
-                            printf("数学の必要な出席日数を入力してください");
+                            while(need_shusseki_count==0||2<need_shusseki_count){
+                            printf("国語の必要な出席日数を入力してください");
                             scanf_s("%s",need_shusseki,100);
                             need_shusseki_count=check(need_shusseki);
                             if(need_shusseki_count==0){
-                                printf("不当な入力です。やり直してください");
+                                printf("不当な入力です。やり直してください\n");
                             }
                         }if(0<need_shusseki_count){
                                 //fileの関数に渡す
@@ -77,18 +80,20 @@ int main(){
                             scanf_s("%s",shusseki_nissuu,100);
                             shusseki_nissuu_count=check(shusseki_nissuu);
                             if(shusseki_nissuu_count==0){
-                                printf("不当な入力です。やり直してください");
+                                printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<shusseki_nissuu_count){
-                                //fileにデータを送信
-                            }
-                    }else if(subject_number==3){
-                       while(need_shusseki_count==0||2<need_shusseki_count){
-                            printf("英語の必要な出席日数を入力してください");
+                        }int shusseki_difference=count_check(need_shusseki,shusseki_nissuu);
+                        if(shusseki_difference==-1){
+                            printf("出席日数は、足りています\n");
+                        }else if(0<shusseki_difference){
+                            printf("あと%d日出席してください。");
+                        }else if(subject_number==3){
+                                 while(need_shusseki_count==0||2<need_shusseki_count){
+                            printf("国語の必要な出席日数を入力してください");
                             scanf_s("%s",need_shusseki,100);
                             need_shusseki_count=check(need_shusseki);
                             if(need_shusseki_count==0){
-                                printf("不当な入力です。やり直してください");
+                                printf("不当な入力です。やり直してください\n");
                             }
                         }if(0<need_shusseki_count){
                                 //fileの関数に渡す
@@ -98,12 +103,15 @@ int main(){
                             scanf_s("%s",shusseki_nissuu,100);
                             shusseki_nissuu_count=check(shusseki_nissuu);
                             if(shusseki_nissuu_count==0){
-                                printf("不当な入力です。やり直してください");
-                                //checkから値をもらう
+                                printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<shusseki_nissuu_count){
-                                //fileにデータを送信
-                            }
+                        }int shusseki_difference=count_check(need_shusseki,shusseki_nissuu);
+                        if(shusseki_difference==-1){
+                            printf("出席日数は、足りています\n");
+                        }else if(0<shusseki_difference){
+                            printf("あと%d日出席してください。");
+                        }
+                        }
                     }
                 }
             }if(file_c==2){
@@ -117,7 +125,7 @@ int main(){
         scanf_s("%s",check_file,100);
         check_file_number=check(check_file_number);
         if(check_file_number==0||2<check_file_number){
-            printf("不当な入力です。やり直してください");
+            printf("不当な入力です。やり直してください\n");
             }
         }
         if(check_file_number==1){
@@ -126,7 +134,7 @@ int main(){
             scanf_s("%s",file_name,100);
             file_b=check(file_name);
             if(file_b==0){
-                printf("不当な入力です。やり直してください");
+                printf("不当な入力です。やり直してください\n");
             }
         }if(file_b==1){
             //データを転送帰り値が1ならファイルが存在しないと出力
@@ -135,7 +143,7 @@ int main(){
             scanf_s("%s",file_in,100);
             file_c=check(file_in);
             if(file_c==0||2<file_c){
-                printf("不当な入力です。やり直してください");
+                printf("不当な入力です。やり直してください\n");
             }
         }if(file_c==1){
 
