@@ -1,39 +1,42 @@
 #include <stdio.h>
 
-void saveData(int id, char name[], int attendance)
+void saveData(char filename[],
+              int subject,
+              int need,
+              int attendance)
 {
     FILE *fp;
 
-    fp = fopen("attendance.txt", "a");
+    fp = fopen(filename,"a");
 
-    if (fp == NULL) {
-        printf("ファイルを開けません\n");
+    if(fp == NULL){
         return;
     }
 
-    fprintf(fp, "%d %s %d\n", id, name, attendance);
+    char subjectName[20];
 
-    fclose(fp);
-}
+    switch(subject){
+        case 1:
+            sprintf(subjectName,"国語");
+            break;
 
-void loadData()
-{
-    FILE *fp;
-    int id, attendance;
-    char name[50];
+        case 2:
+            sprintf(subjectName,"数学");
+            break;
 
-    fp = fopen("attendance.txt", "r");
+        case 3:
+            sprintf(subjectName,"英語");
+            break;
 
-    if (fp == NULL) {
-        printf("データがありません\n");
-        return;
+        default:
+            sprintf(subjectName,"不明");
     }
 
-    while (fscanf(fp, "%d %s %d",
-                  &id, name, &attendance) == 3) {
-        printf("%d %s %d\n",
-               id, name, attendance);
-    }
+    fprintf(fp,
+            "%s %d %d\n",
+            subjectName,
+            need,
+            attendance);
 
     fclose(fp);
 }
