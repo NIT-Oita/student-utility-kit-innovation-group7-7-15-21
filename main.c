@@ -56,7 +56,7 @@ int main(){
 <<<<<<< HEAD
             scanf_s("%s",file_in,1024);
             file_c==check(file_in);
-=======
+====
             scanf_s("%s",file_in,100);
             file_c=check(file_in);
 >>>>>>> 6589b6b4be43b7a68fd2eb8531087ab1f5db6b7f
