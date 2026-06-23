@@ -10,7 +10,7 @@ void saveData(char filename[],
     fp = fopen(filename,"a");
 
     if(fp == NULL){
-        return;
+        return ;
     }
 
     char subjectName[20];

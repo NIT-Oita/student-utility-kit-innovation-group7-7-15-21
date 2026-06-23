@@ -6,7 +6,7 @@
 int a,b,c;
 
 int main(){
-    int file_a,file_b,file_c,file_number,subject_number,
+    int file_a,file_b,file_c,file_d,file_number,subject_number,
     need_shusseki_count,shusseki_nissuu_count,
     check_file_number;
     char file[1024],file_name[1024],file_in[1024],subject[1024],
@@ -53,9 +53,7 @@ int main(){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -78,9 +76,7 @@ int main(){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -103,9 +99,7 @@ int main(){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -125,14 +119,6 @@ int main(){
             }
         }
     else if(file_a==2){
-        while(check_file_number==0||2<check_file_number){
-        printf("ファイルを確認しますか。確認しないならそのまま終了(1 確認する,2 確認しない)");
-        scanf_s("%s",check_file,1024);
-        check_file_number=check(check_file_number);
-        if(check_file_number==0||2<check_file_number){
-            printf("不当な入力です。やり直してください\n");
-            }
-        }
         if(check_file_number==1){
             while(file_b==0){
             printf("ファイルの名前を入力してください(4桁)");
@@ -141,9 +127,8 @@ int main(){
             if(file_b==0){
                 printf("不当な入力です。やり直してください\n");
             }
-        }if(file_b==1){
-            //データを転送帰り値が1ならファイルが存在しないと出力
-            
+        }
+    
             while(file_c==0||2<file_c){
             pirntf("データの入力をしますか。しないなら終了。(1 する,2 しない)");
             scanf_s("%s",file_in,1024);
@@ -167,9 +152,7 @@ while(subject_number==0||2<subject_number){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -192,9 +175,7 @@ while(subject_number==0||2<subject_number){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -217,9 +198,7 @@ while(subject_number==0||2<subject_number){
                             if(need_shusseki_count==0){
                                 printf("不当な入力です。やり直してください\n");
                             }
-                        }if(0<need_shusseki_count){
-                                //fileの関数に渡す
-                            }
+                        }
                         while(shusseki_nissuu_count==0){
                             printf("出席している日数を教えてください");
                             scanf_s("%s",shusseki_nissuu,1024);
@@ -242,7 +221,4 @@ while(subject_number==0||2<subject_number){
             return 0;
         }
     }
-}
-int file_date_take(a,b,c){
-    
 }
